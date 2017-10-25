@@ -2,31 +2,22 @@ package fuyu.ntub_course.Model;
 
 
 public class Course {
-    private String name;
-    private String teacher;
-    private String room;
+    private String stdNo;
+    private String today;
 
-    public String getName() {
-        return name;
+    public String getStdNo() {
+        return stdNo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStdNo(String stdNo) {
+        this.stdNo = stdNo;
     }
 
-    public String getTeacher() {
-        return teacher;
+    public String getToday() {
+        return today;
     }
 
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
+    public void setToday(String today) {
+        this.today = today;
     }
 }
