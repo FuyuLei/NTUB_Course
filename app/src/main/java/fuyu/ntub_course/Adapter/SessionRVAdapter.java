@@ -40,7 +40,6 @@ public class SessionRVAdapter extends CommonRVAdapter {
     private class ViewHolder extends RecyclerView.ViewHolder {
 
 
-
         public ViewHolder(View v) {
             super(v);
         }

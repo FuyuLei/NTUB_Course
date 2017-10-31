@@ -6,6 +6,16 @@ public class Session {
     private String startTime;
     private String endTime;
 
+    public Session(){
+
+    }
+
+    public Session(String session, String startTime, String endTime) {
+        this.session = session;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
     public String getSession() {
         return session;
     }
