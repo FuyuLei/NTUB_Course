@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">NTUB_Course</string>
+    <string name="login">登入</string>
+    <string name="allow_word">0123456789N</string>
+    <string name="std_no">學號</string>
+    <string name="auto_login">自動登入</string>
+
 </resources>
