@@ -18,11 +18,10 @@ import fuyu.ntub_course.Adapter.WeekRVAdapter;
 import fuyu.ntub_course.Model.Session;
 import fuyu.ntub_course.R;
 
-public class MainActivity extends AppCompatActivity implements WeekView.EventClickListener, MonthLoader.MonthChangeListener, WeekView.EventLongPressListener {
+public class MainActivity extends AppCompatActivity{
 
     private RecyclerView rv_week;
     private RecyclerView rv_session;
-    private WeekView wkv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +30,9 @@ public class MainActivity extends AppCompatActivity implements WeekView.EventCli
 
         rv_week = (RecyclerView) findViewById(R.id.rv_main_week);
         rv_session = (RecyclerView) findViewById(R.id.rv_main_session);
-        wkv = (WeekView) findViewById(R.id.wkv_main_weekView);
 
-        wkv.setOnEventClickListener(this);
-        wkv.setMonthChangeListener(this);
-        wkv.setEventLongPressListener(this);
-
-//        initWeek();
-//        initSession();
+        initWeek();
+        initSession();
     }
 
     private void initWeek() {
@@ -73,20 +67,5 @@ public class MainActivity extends AppCompatActivity implements WeekView.EventCli
         list_session.add(new Session("第十四節", "21:05", "21:50"));
         rv_session.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv_session.setAdapter(new SessionRVAdapter(this, list_session));
-    }
-
-    @Override
-    public void onEventClick(WeekViewEvent weekViewEvent, RectF rectF) {
-
-    }
-
-    @Override
-    public List<? extends WeekViewEvent> onMonthChange(int i, int i1) {
-        return null;
-    }
-
-    @Override
-    public void onEventLongPress(WeekViewEvent weekViewEvent, RectF rectF) {
-
     }
 }
