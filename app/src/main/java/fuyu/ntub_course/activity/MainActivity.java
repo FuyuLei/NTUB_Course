@@ -1,4 +1,4 @@
-package fuyu.ntub_course.Activity;
+package fuyu.ntub_course.activity;
 
 import android.graphics.RectF;
 import android.support.v7.app.AppCompatActivity;
@@ -7,14 +7,11 @@ import android.util.TypedValue;
 import android.widget.Toast;
 
 import com.alamkanak.weekview.DateTimeInterpreter;
-import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 import fuyu.ntub_course.R;

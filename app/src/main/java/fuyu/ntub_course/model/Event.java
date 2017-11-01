@@ -1,4 +1,4 @@
-package fuyu.ntub_course.Model;
+package fuyu.ntub_course.model;
 
 public class Event {
     private String name;

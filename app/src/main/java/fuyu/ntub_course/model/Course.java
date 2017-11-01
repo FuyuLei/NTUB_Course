@@ -1,9 +1,14 @@
-package fuyu.ntub_course.Model;
+package fuyu.ntub_course.model;
 
 
-public class Course {
+public class Course extends CommonModel{
+
     private String stdNo;
     private String today;
+
+    public Course(){
+
+    }
 
     public String getStdNo() {
         return stdNo;

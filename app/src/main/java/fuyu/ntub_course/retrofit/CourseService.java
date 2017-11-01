@@ -19,5 +19,5 @@ public interface CourseService {
     @Headers("x-requested-with:com.hanglong.NTUBStdApp")
     @FormUrlEncoded
     @POST("JMobile_STD/AjaxPage/SRHCUR_Schedule_ajax.aspx")
-    Call<String> Data(@Field("StdNo") String std_no, @Field("today") String today);
+    Call<String> Login(@Field("StdNo") String std_no, @Field("today") String today);
 }
