@@ -3,8 +3,14 @@ package fuyu.ntub_course.model;
 
 public class Course extends CommonModel{
 
+    private static final Course course = new Course();
+
     private String stdNo;
     private String today;
+
+    public static Course getInstance(){
+        return course;
+    }
 
     public Course(){
 

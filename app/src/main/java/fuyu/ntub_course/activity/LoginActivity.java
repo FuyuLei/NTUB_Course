@@ -1,9 +1,12 @@
 package fuyu.ntub_course.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView login;
     private EditText stdNo;
+    private CheckBox cb_auto_login;
 
 
     @Override
@@ -41,23 +45,37 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void login(String std_no, String day) {
+    private void login(final String std_no, final String day) {
         Course course = new Course();
         course.setStdNo(std_no);
         course.setToday(day);
 
         CourseService service = CourseService.retrofit.create(CourseService.class);
-        Call<String> call = service.Login(std_no, day);
-        call.enqueue(new Callback<String>() {
+        Call<Course> call = service.Login(course);
+        call.enqueue(new Callback<Course>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String data = response.body();
-
+            public void onResponse(Call<Course> call, Response<Course> response) {
+                if (response.isSuccessful()) {
+                    Course result = response.body();
+                    if (result.isResult()) {
+                        Course course = Course.getInstance();
+                        course.setStdNo(std_no);
+                            course.setToday(day);
+                        if (cb_auto_login.isChecked())
+                            SPHelper.setStdNo(LoginActivity.this, std_no);
+                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(getBaseContext(), "失敗", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
+            public void onFailure(Call<Course> call, Throwable t) {
+                Toast.makeText(getBaseContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                Log.d("log", t.toString());
             }
         });
 

@@ -50,12 +50,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:digits="@string/allow_word"
                 android:hint="@string/std_no"
                 android:inputType="text"
-                android:digits="@string/allow_word"
-                android:textSize="20sp"
-                android:textColorHint="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/text"
+                android:textColorHint="@color/text"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/cb_login_auto_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textColor="@color/text"
+                android:checked="true"
+                android:text="@string/auto_login" />
 
             <TextView
                 android:id="@+id/tv_login_do_login"
@@ -65,8 +74,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="@string/login" />
+
         </LinearLayout>
-
     </ScrollView>
-
 </RelativeLayout>
