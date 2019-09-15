@@ -1,1 +1,1 @@
-NTUB_Course
+NTUB查詢學期成績APP
